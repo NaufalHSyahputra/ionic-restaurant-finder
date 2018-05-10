@@ -1,0 +1,13 @@
+page-home {
+
+}
+.wrapper{
+	position: relative;
+}
+ion-content.cards-bg {
+  background-color: #f4f4f7;
+}
+button[fab].fab-map {
+  top: calc(100% - 35px);
+  z-index: 50;
+}

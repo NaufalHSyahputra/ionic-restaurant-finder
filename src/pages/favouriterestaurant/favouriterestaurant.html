@@ -1,0 +1,53 @@
+<!--
+  Generated template for the FavouriterestaurantPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List Favorit Restaurant</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<div *ngIf="restaurants">
+ <ion-card *ngFor="let restaurant of restaurants" (click)="someFunction(restaurant)"> 
+ <ion-item>
+ <h2 text-wrap ><b> {{ restaurant.name }} </b></h2>
+ </ion-item>
+ <div class="wrapper">
+ <img src="{{restaurant.thumb }}">
+   <ion-fab right top>
+    <button ion-fab>
+      <ion-icon name="star"></ion-icon> {{ restaurant.user_rating.aggregate_rating }}
+    </button>
+  </ion-fab>
+</div>
+ <ion-card-content>
+<ion-icon name="pin"> {{ restaurant.location.address }} {{ restaurant.id }}</ion-icon>
+
+ </ion-card-content>
+ <ion-row>
+ <ion-col>
+ </ion-col>
+ <ion-col>
+ <a ion-button icon-left clear small (click)="someFunction(restaurant)"> 
+ <ion-icon name="open"></ion-icon>
+ <div>Detail Restaurant</div>
+ </a>
+ </ion-col>
+
+ <ion-col center text-center>
+ </ion-col>
+ </ion-row>
+ </ion-card>
+ </div>
+ <div *ngIf="restaurants.length <= 0">
+<h2 layout-align="start center">Tidak ada favorit</h2>
+ </div>
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="cards-bg">
+  <h3>Restaurant Terdekat</h3><br>
+  <h3>Lokasi Anda : {{ mylocation }}</h3>
+ <ion-card *ngFor="let nearbyres of nearbyress" (click)="someFunction(nearbyres)"> 
+ <ion-item>
+ <h2 text-wrap ><b> {{ nearbyres.restaurant.name }} </b></h2>
+ </ion-item>
+ <div class="wrapper">
+ <img src="{{nearbyres.restaurant.thumb }}">
+   <ion-fab right top>
+    <button ion-fab>
+      <ion-icon name="star"></ion-icon> {{ nearbyres.restaurant.user_rating.aggregate_rating }}
+    </button>
+  </ion-fab>
+</div>
+ <ion-card-content>
+<ion-icon name="pin"> {{ nearbyres.restaurant.location.address }} {{ nearbyres.restaurant.id }}</ion-icon>
+
+ </ion-card-content>
+ <ion-row>
+ <ion-col>
+ </ion-col>
+ <ion-col>
+ <a ion-button icon-left clear small>
+ <ion-icon name="open"></ion-icon>
+ <div>Detail Restaurant</div>
+ </a>
+ </ion-col>
+
+ <ion-col center text-center>
+ </ion-col>
+ </ion-row>
+ </ion-card>
+<!--  <button (click)="getLocation()" ion-button mode="ios" round>Get geolocation</button>
+  <div *ngIf="lat">
+    <h2>Your location is:</h2>
+    <p>Lon: {{ lat }}</p>
+    <p>Lat: {{ long }}</p>
+  </div>
+DEBUG CODE!!!!!!!!!
+  <button ion-button secondary menuToggle>Toggle Menu</button> -->
+</ion-content>
