@@ -39,7 +39,7 @@ getPosts(action, data) {
   }else if(action == "restaurant"){
     this.getApiUrl = this.getRestaurantUrl+"?res_id="+data.res_id;
   }
-let headers = new Headers({'Accept':'application/json','user-key':'6a45badc93a1852abc76af734740daef'});
+let headers = new Headers({'Accept':'application/json','user-key':'##YOUR ZOMATO USER KEY##'});
 let options = new RequestOptions({ headers: headers });
     return this.http.get(this.getApiUrl, options)
             .do((res : Response ) => console.log(res.json()))
